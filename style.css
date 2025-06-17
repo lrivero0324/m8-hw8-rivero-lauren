@@ -39,12 +39,41 @@ header {
 header a {
   font-size: 1.5rem;
   color: var(--off-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+header a:hover {
+  transform: scale(1.1);
 }
 /* end header link animations */
 
 /* article link transitions */
 main a {
   color: var(--danger-color);
+ text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+main a:hover {
+  color: var(--secondary-color);
+}
+
+main a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: 0.2s ease;
+}
+
+main a:hover::after {
+  width: 100%;
 }
 /* end article link transitions */
 
@@ -100,6 +129,20 @@ section.hero > button {
   border-radius: 12px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+section.hero > button:hover {
+ animation: colorChange 0.2s ease;
+ animation-fill-mode: forwards;
+}
+
+@keyframes colorChange {
+  from {
+    background-color: var(--secondary-color);
+  }
+  to {
+    background-color: var(--warn-color);
+  }
 }
 
 main article {
